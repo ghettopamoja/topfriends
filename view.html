@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Friend List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    
+    <div class="container">
+        <header>
+            <div id="notificationDiv">Press Enter or Tab to search</div>
+            <h1> My Top <span id="total-friends"></span> Friends on Facebook</h1>
+            <img id="ownerImage" src="#" alt="profile-photo">
+            <p><strong>Created by: </strong><span id="ownership"></span></p>
+            <button class="create-button" onclick="redirectToIndex()">Create Friend List</button>
+            <div class="emotion-filters"></div>
+        </header>
+
+        <div class="search-bar">
+            <input type="text" class="search-input" placeholder="Search friends..." id="searchInput">
+        </div>
+        
+
+        <main id="friendList">
+            <!-- Friend List will be dynamically populated here -->
+        </main>
+
+        <button class="create-button" onclick="redirectToIndex()">Create Friend List</button>
+    </div>
+  <script src="view.js">
+   
+</script>
+</body>
+
+</html>

@@ -1,0 +1,1079 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+ /* CSS for the loading overlay */
+ .loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent white background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensure it's above other content */
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Optional: Hide the loading overlay by default */
+.loading-overlay.hidden {
+  display: none;
+}
+  
+  .header {
+    background-color: #1877f2;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100; /* Ensure header stays on top */
+  }
+  
+  /* Rest of your CSS remains unchanged */
+  
+  
+  .title {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .button {
+    background-color: #2ecc71; /* Green button */
+    color: #fff; /* White text */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #27ae60; /* Darker green on hover */
+  }
+  
+  .button:disabled {
+    background-color: #ed0808; /* Light gray background */
+    color: #ccc; /* Dark gray text */
+    cursor: not-allowed; /* Cursor indicating the button is disabled */
+  }
+  
+  .button:disabled:hover {
+    background-color: #ccc; /* Maintain gray background on hover */
+  }
+
+  /* Additional styles for message entry */
+.message-entry {
+    margin: 20px auto; /* Center the message entry */
+    padding: 20px;
+    background-color: #ccc; /* Grey background color */
+    border: 1px solid #999; /* 1px border with grey color */
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    max-width: 400px; /* Limit the width of the message entry */
+    text-align: center;
+    animation: slideIn 2s linear;
+  }
+  
+  .message-entry p {
+    margin: 0;
+    font-size: 20px;
+  }
+  
+  .plus-button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    width: 50px;
+    height: 50px;
+    padding: 8px;
+    margin-left: 150px;
+    border-radius: 20%; /* Rounded button */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .plus-button:hover {
+    background-color: #2980b9;
+  }
+  
+  .plus-button i{
+    padding-left: 8px;
+    padding-top: 10px;
+    font-size: 30px;
+  }
+  /* Additional styles for overlay */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+  
+  .overlay-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 600px;
+    max-height: 70%;
+    overflow-y: auto;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .overlay-content h3 {
+    margin-bottom: 20px;
+  }
+  
+  .overlay-content .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .overlay-content .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .overlay-content .input-field {
+    width: calc(100% - 16px);
+    padding: 8px;
+    border: 1px solid #1877f2;
+    border-radius: 5px;
+  }
+  
+  .overlay-content .input-field[type="file"] {
+    display: none;
+    background-color: #2ecc71;
+  }
+  
+  .overlay-content button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .overlay-content button.cancel-btn {
+    background-color: #ed0808;
+    color: #fff;
+  }
+  
+  .overlay-content button.done-btn {
+    background-color: #3498db;
+    color: #fff;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+ /* Additional styles for friend list */
+.friend-list {
+    display: none; 
+    flex-wrap: wrap; /* Allow friends to wrap to the next line */
+    justify-content: space-between; /* Distribute space between friends */
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+
+/* Additional styles for file input */
+.input-field[type="file"] {
+  display: none;
+}
+
+#friendImage {
+  display: inline-block;
+  padding: 8px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+#friendImage:hover {
+  background-color: #2980b9;
+}
+
+.file-selected-label {
+  display: block;
+  margin-top: 5px;
+  color: #555;
+}
+
+/* Friend list tracker */
+.friend-list-tracker {
+  position: fixed;
+  top: 80px; /* Adjust this value to your header's height */
+  left: 10px;
+  background-color: #1877f2;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  margin-left: 10px;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  display: none;
+}
+
+/* Filters */
+.filters {
+  display: none;
+  position: fixed;
+  top: 100px; /* Adjust this value to your header's height */
+  right: 10px;
+  background-color: #1877f2;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+
+
+/* Additional styles for friend content */
+.friend-content {
+    display: flex;
+    flex-direction: column; /* Change to column layout */
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .friend {
+    width: 300px;
+    background-color: #ffffff;
+    margin-top: 40px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    border: 2px solid #2980b9;
+    margin-bottom: 10px;
+    /* Added */
+    word-wrap: break-word;
+    animation: fadeIn 2s linear;
+  }
+  
+  /* Slide animation */
+@keyframes slideIn {
+  from {
+      transform: translateX(100%);
+      opacity: 0;
+  }
+  to {
+      transform: translateX(0);
+      opacity: 1;
+  }
+}
+
+
+/* Media query for small screens */
+@media screen and (max-width: 800px) {
+  .friend {
+      animation: fadeIn 2s linear; /* Fade-in animation for small screens */
+  }
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+  .friend-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600px;
+    
+    
+  }
+  
+  .friend-number {
+    font-weight: bold;
+    font-size: 20px; /* Adjust font size */
+  }
+  
+  .friend-name {
+    margin: 10px 0;
+    font-size: 18px; /* Adjust font size */
+    text-transform: capitalize;
+  }
+  
+  /* Additional styles for friend content */
+.friend-content img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px; /* Rounded corners */
+    border: 1px solid #ddd; /* Light gray border */
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    transition: transform 0.3s ease;
+  }
+  
+  .friend-content img:hover {
+    transform: scale(1.25); /* Scale up on hover */
+  }
+  
+  
+  .more-button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 8px 16px; /* Increase padding */
+    font-size: 16px; /* Adjust font size */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+  }
+  
+  .more-button:hover {
+    background-color: #2980b9;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  }
+  
+  .more-button:hover {
+    background-color: #2980b9;
+  }
+  
+  
+  .friend-details {
+    text-align: left; /* Align text to the left */
+    overflow: hidden; /* Prevent overflow */
+    word-wrap: break-word; /* Wrap long words to next line */
+    font-weight: bold;
+    width: 98%;
+  }
+  .friend-details p {
+    margin: 0; /* Remove default margin */
+    padding: 5px 0; /* Add padding between paragraphs */
+    font-size: 16px; /* Adjust font size */
+    color: #333; /* Text color */
+}
+
+  .friend-list p{
+    font-weight: normal;
+    font-family: Arial, sans-serif;
+  }
+  
+  .friend:hover .friend-details {
+    display: block;
+  }
+  
+  .friend-description {
+    margin-bottom: 10px;
+  }
+  
+ 
+  
+  .Del-button {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .Del-button:hover {
+    background-color: #c0392b;
+  }
+
+  .edit-button {
+    background-color: #2ecc71;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-button:hover {
+    background-color: #27ae60;
+  }
+  
+  .friend-image-preview {
+    margin-top: 10px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 20%;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirmationBox {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.confirmationBox p {
+  margin-bottom: 20px;
+}
+
+
+.overlays {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* semi-transparent black background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* ensure it's above other content */
+  display: none;
+}
+
+.confirmationBox {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* shadow effect */
+  text-align: center;
+  
+}
+
+.confirmationBox p {
+  margin-bottom: 20px;
+}
+
+.confirmationBox button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#confirmDeleteBtn {
+  background-color: #ff5a5a; /* red */
+  color: #fff;
+}
+
+#confirmDeleteBtn:hover {
+  background-color: #ff3d3d; /* darker red on hover */
+}
+
+#cancelDeleteBtn {
+  background-color: #5a5a5a; /* gray */
+  color: #fff;
+}
+
+#cancelDeleteBtn:hover {
+  background-color: #3d3d3d; /* darker gray on hover */
+}
+
+/* Style for the swap overlay */
+#swapOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensure it appears on top of other content */
+  overflow-y: auto;
+}
+
+#swapOverlay .overlay-content {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Box shadow for depth */
+}
+
+#swapOverlay h3 {
+  margin-top: 0;
+}
+
+#swapOverlay .form-group {
+  margin-bottom: 15px;
+}
+
+#swapOverlay .input-field {
+  width: calc(100% - 100px); /* Adjust width based on button size */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#swapOverlay .search-btn,
+#swapOverlay .swap-btn,
+#swapOverlay .cancel-btn {
+  width: 100px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #007bff; /* Blue color for buttons */
+  color: #fff;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+#swapOverlay .search-btn:hover,
+#swapOverlay .swap-btn:hover,
+#swapOverlay .cancel-btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+#swapOverlay .form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+#swapOverlay .cancel-btn{
+  background-color: #ed0808;
+}
+
+#swapOverlay .cancel-btn:hover{
+  background-color: #e74c3c;
+}
+
+.matching-friends {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+  z-index: 1000; /* Ensure it's above other content */
+  overflow-y: auto; /* Allow scrolling if content exceeds viewport height */
+}
+
+.matching-friends-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  max-width: 80%; /* Limit the width for better readability */
+}
+
+.matching-friends ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.matching-friends li {
+  cursor: pointer;
+  padding: 5px 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.matching-friends li:hover {
+  background-color: #f2f2f2;
+}
+
+
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  z-index: 9999;
+  display: none;
+}
+.offline-message {
+  max-width: 800px;
+  padding: 40px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  margin: 50px auto;
+  display: none;
+}
+
+.offline-message h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.offline-message #options {
+  font-size: 24px;
+  margin-bottom: 40px;
+  margin-bottom: 8px;
+}
+
+ .selected:active{
+  background-color: #ccc;
+ 
+  color:#333
+}
+
+.selected:hover{
+  background-color: #ccc;
+  cursor: pointer;
+  color:#333
+}
+.selected {
+  margin-bottom: 10px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+
+#ownerImagePreview {
+  width: 200px; /* Set maximum width for the image */
+  max-height: 150px; /* Set maximum height for the image */
+  display: block; /* Ensure the image behaves as a block element */
+  margin-top: 10px; /* Adjust margin as needed */
+  border-radius: 8px;
+}
+
+
+#ownerImageDiv img {
+    width: 100%; /* Make the image fill the div width */
+    height: auto; /* Auto adjust height to maintain aspect ratio */
+}
+
+.container button {
+  background-color: #1877f2;
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.container button:hover {
+  background-color: #007bff;
+}
+
+#nextButton {
+  margin-bottom: 20px;
+}
+
+#offline-jokes {
+  background-color: #e74c3c;
+  margin-top: 20px;
+}
+
+#offline-jokes:hover {
+  background-color: #c0392b;
+}
+
+#saveLinkContainer {
+  display: none;
+  margin-top: 20px;
+  
+}
+
+#saveLinkContainer p {
+  margin-bottom: 10px;
+}
+
+#saveLinkContainer input[type="text"] {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #1877f2;
+  border-radius: 4px;
+  
+}
+
+#saveLinkContainer button {
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#saveLinkContainer button:hover {
+  background-color: #45a049;
+}
+
+
+/* CSS for the fancy footer */
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+
+.overlaying {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.overlay-contented {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+  max-height: 80%; /* Set max height */
+  overflow: hidden;
+  overflow-y: auto; /* Add scrollbars if content overflows vertically */
+}
+
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #888;
+}
+
+.close-btn:hover {
+  color: #555;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="file"] {
+  width: calc(100% - 20px);
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #1877f2;
+  border-radius: 5px;
+}
+
+input[type="file"] {
+  margin-top: 5px;
+  background-color: #1877f2;
+  color: #fff;
+}
+
+#ownerImagePreview {
+  #ownerImagePreview {
+    max-width: 100px; /* Adjust as needed */
+    max-height: 100px; /* Adjust as needed */
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+}
+
+#friendListItems {
+  margin-left: 10px;
+  list-style-type: decimal;
+  padding: 0;
+  text-transform: capitalize;
+}
+
+#confirmation {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+#cancelSaveButton {
+  background-color: #f44336;
+}
+
+#cancelSaveButton:hover {
+  background-color: #da190b;
+}
+
+#saveLinkContainer {
+  display: none;
+  margin-top: 20px;
+}
+
+#saveLinkContainer p {
+  font-weight: bold;
+}
+
+#saveLink {
+  width: 100%;
+  margin-top: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#copyLinkButton {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#copyLinkButton:hover {
+  background-color: #45a049;
+}
+
+/* Styles for screens up to 800px */
+@media (max-width: 800px) {
+  .offline-message {
+    max-width: 80%; /* Adjust width for smaller screens */
+    margin-left: auto; /* Center the message horizontally */
+    margin-right: auto; /* Center the message horizontally */
+  }
+}
+
+  /* Media query for screens up to 800px */
+  @media (max-width: 800px) {
+    .header {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .buttons {
+      margin-top: 10px; /* Add space between buttons and title */
+    }
+  
+    .button {
+      padding: 8px 16px; /* Decrease button padding */
+      font-size: 14px; /* Decrease button font size */
+    }
+
+    .overlay-content {
+        width: 90%;
+        max-width: 400px;
+        margin: 20px auto;
+      }
+    
+      .input-field,
+      .form-group select {
+        width: calc(100% - 16px);
+      }
+    
+      .friend-list {
+        margin-top: 10px;
+        padding: 10px;
+      }
+
+      .friend-list-tracker {
+        top: 112px; /* Adjust this value for smaller screens */
+        left: 5px;
+        padding: 8px;
+        font-size: 12px;
+        
+        
+      }
+    
+      .filters {
+        top: 120px; /* Adjust this value for smaller screens */
+        right: 5px;
+        padding: 8px;
+        font-size: 12px;
+      }
+  }
+  
+  @media screen and (max-width: 800px) {
+    #swapOverlay .overlay-content {
+        max-width: 300px; /* Adjusted max-width for smaller screens */
+    }
+
+    #swapOverlay .input-field {
+        width: calc(100% - 20px); /* Adjusted width for smaller screens */
+    }
+
+    #swapOverlay .swap-btn,
+    #swapOverlay .cancel-btn {
+        width:70%; /* Adjusted width for smaller screens */
+        margin-right: 5px; /* Added margin between buttons */
+        margin-left: 30px;
+        margin-bottom: 20px;
+    }
+    #swapOverlay .cancel-btn{
+      background-color: #ed0808;
+    }
+
+    #swapOverlay .search-btn {
+        width: 70%; /* Set search button width to 100% */
+        margin-top: 10px; /* Added margin between search input and search button */
+        margin-left: 30px;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+  .overlay-content {
+    width: 80%; /* Adjust width as needed */
+    max-width: 400px; /* Limit maximum width */
+    padding: 15px; /* Adjust padding */
+  }
+
+  .overlay-content h3 {
+    margin-bottom: 15px; /* Adjust margin */
+    font-size: 18px; /* Adjust font size */
+  }
+
+  .overlay-content .form-group {
+    margin-bottom: 15px; /* Adjust margin */
+  }
+
+  .overlay-content .form-group label {
+    font-size: 14px; /* Adjust font size */
+  }
+
+  .overlay-content .input-field {
+    padding: 10px; /* Adjust padding */
+    font-size: 14px; /* Adjust font size */
+  }
+
+  .overlay-content .input-field[type="file"] {
+    padding: 8px; /* Adjust padding */
+    font-size: 14px; /* Adjust font size */
+  }
+
+  .overlay-content button {
+    padding: 8px 16px; /* Adjust padding */
+    font-size: 14px; /* Adjust font size */
+  }
+
+  .input-field {
+    padding: 8px; /* Adjust padding */
+    font-size: 14px; /* Adjust font size */
+  }
+
+  .form-group label {
+    font-size: 14px; /* Adjust font size */
+  }
+
+  .form-group select {
+    padding: 8px; /* Adjust padding */
+    font-size: 14px; /* Adjust font size */
+  }
+}
+
